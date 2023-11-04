@@ -1,0 +1,1 @@
+export const mongoToObj = (objMongo) => JSON.parse(JSON.stringify(objMongo))

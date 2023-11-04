@@ -1,0 +1,41 @@
+<h1>Listado de películas</h1>
+<hr>
+
+<a href="/api/peliculas/create" class="btn btn-info">Crear película</a>
+
+<hr>
+
+{{#if usuario}}
+<div>
+  {{ usuario }}
+  <a class="btn btn-danger" href="/api/auth/logout">Deslogueo</a>
+</div>
+{{/if}}
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Año</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {{#each peliculas}}
+        <tr>
+            <td> {{this.title}}</td>
+            <td>{{this.year}}</td>
+            <td>
+              <a class="btn btn-warning" href="/api/peliculas/edit/{{this._id}}">Editar</a>
+            </td>
+            <td>
+              <form action="/api/peliculas/{{this._id}}?_method=DELETE" method="post">
+                <button class="btn btn-danger">Eliminar</button>
+              </form>
+            </td>
+        </tr>
+    {{/each}}
+
+  </tbody>
+</table>

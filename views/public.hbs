@@ -1,0 +1,21 @@
+<h1>Listado de películas</h1>
+<hr>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Año</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {{#each peliculas}}
+        <tr>
+            <td> {{this.title}}</td>
+            <td>{{this.year}}</td>
+        </tr>
+    {{/each}}
+
+  </tbody>
+</table>
